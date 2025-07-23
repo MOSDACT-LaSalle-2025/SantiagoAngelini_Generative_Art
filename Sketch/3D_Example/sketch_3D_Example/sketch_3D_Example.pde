@@ -6,6 +6,7 @@ float x,y,z;
 void setup(){
   size(1280,720,P3D);
   background(0);
+  Lightset();
   x=width/2;
   y=height/2;
   z=0;
@@ -13,9 +14,10 @@ void setup(){
 }
 
 void draw(){
-  //background(0);
+  
   if(i>=200||i<=-1){
     val=val*-1;
+    Lightset();
     background(0);
     Room();
   }
@@ -31,7 +33,16 @@ void draw(){
   rotateY(xrot);
   rotateX(yrot);
   box(240);
+  
   i+=val;
+}
+
+void Lightset(){
+  ambient(int(random(0,255)),int(random(0,255)),int(random(0,255)));
+  ambientLight(int(random(0,255)),int(random(0,255)),int(random(0,255)));
+  lightSpecular(int(random(0,255)),int(random(0,255)),int(random(0,255)));
+  directionalLight(int(random(0,255)),int(random(0,255)),int(random(0,255)),random(-1,1),random(-1,1),random(-1,1));
+  shininess(255);
 }
 
 void Room(){
