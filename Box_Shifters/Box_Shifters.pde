@@ -1,3 +1,15 @@
+/*
+Name: Box Shifters
+Author: Santiago Angelini Wintergerst
+Date: 07/08/25
+Description: A room where different size boxes shift front to back 
+leaving their previous move printed. They appear in different size, 
+color and XY coordinates every time they reach the Z limit of the 
+room. The lights change when the whole image refreshes, but it
+refreshes randomly after x number of boxes.
+Place of production: Barcelona
+*/
+
 float xrot, yrot = 0; //Controls the rotation of the box
 int i=0;              //Counts how many boxes have been drawn
 int val=1;            //Changes the direction in Z
@@ -19,7 +31,7 @@ void setup(){
   x=random(400,width-400);
   y=random(200,height-200);
   quantity=int(random(4,10));
-  //strokeWeight(2);
+  strokeWeight(2);
   //stroke(30);
 }
 
@@ -79,6 +91,9 @@ void Room(){
   endShape(CLOSE);
   beginShape();
   wall(0,0,width,width,height,height,height,height,0,-500,-500,0);
+  endShape(CLOSE);
+  beginShape();
+  wall(0,width,width,0,0,0,height,height,-500,-500,-500,-500);
   endShape(CLOSE);
 }
 
